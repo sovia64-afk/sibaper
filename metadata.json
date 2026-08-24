@@ -1,0 +1,6 @@
+{
+  "name": "SIBAPER - Sistem Informasi Bidang Pelayaran",
+  "description": "Sistem Informasi Bidang Pelayaran dengan manajemen SAKIP (PROGRAM, PK, RENCANA AKSI, REALISASI PK, REALISASI RENCANA AKSI), manajemen kinerja evaluasi dan penilaian SKP multi-periode, database instansi, profil pegawai, dan unduh berkas dokumen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
