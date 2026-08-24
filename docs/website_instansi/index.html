@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIBAPER - Sistem Informasi Bidang Pelayaran</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function() {
+            var session = localStorage.getItem("sibaperSession");
+            if (session) {
+                window.location.replace("pages/dashboard.html");
+            } else {
+                window.location.replace("pages/login.html");
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+        <h2>Mengarahkan ke SIBAPER...</h2>
+        <p><a href="pages/dashboard.html">Klik di sini jika tidak diarahkan otomatis</a></p>
+    </div>
+</body>
+</html>
