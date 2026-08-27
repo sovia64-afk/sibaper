@@ -1,6 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import {copyFileSync, mkdirSync} from 'fs';
+import {cpSync, mkdirSync, readFileSync, writeFileSync} from 'fs';
 import path from 'path';
 import {defineConfig} from 'vite';
 
@@ -14,11 +14,24 @@ function copySibaperPages() {
       mkdirSync(outputDirectory, {recursive: true});
 
       pageNames.forEach((pageName) => {
-        copyFileSync(
+        const source = readFileSync(
           path.resolve(__dirname, 'pages', `${pageName}.html`),
+          'utf8',
+        );
+        const output = source
+          .replaceAll('../css/', '/css/')
+          .replaceAll('../js/', '/js/')
+          .replaceAll('../assets/', '/assets/');
+
+        writeFileSync(
           path.resolve(outputDirectory, `${pageName}.html`),
+          output,
         );
       });
+
+      cpSync(path.resolve(__dirname, 'css'), path.resolve(outputDirectory, 'css'), {recursive: true});
+      cpSync(path.resolve(__dirname, 'js'), path.resolve(outputDirectory, 'js'), {recursive: true});
+      cpSync(path.resolve(__dirname, 'assets'), path.resolve(outputDirectory, 'assets'), {recursive: true});
     },
   };
 }
