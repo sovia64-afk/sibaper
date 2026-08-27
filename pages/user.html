@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIBAPER - User</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#f4f7fb; }
+        .user-shell { width:100%; height:100vh; }
+        .user-shell iframe { display:block; width:100%; height:100%; border:0; }
+    </style>
+</head>
+<body>
+    <main class="user-shell">
+        <iframe id="userDashboardFrame" title="Dashboard user read-only"></iframe>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase.js"></script>
+
+<script src="../js/auth.js"></script>
+    <script>
+        (async function () {
+            if (window.sibaperReady) await window.sibaperReady;
+
+            const session = getSibaperSession();
+            if (!session) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            if (!["user", "admin"].includes(session.role)) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            document.getElementById("userDashboardFrame").src = "dashboard.html";
+        })();
+    </script>
+</body>
+</html>

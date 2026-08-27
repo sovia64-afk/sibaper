@@ -1,0 +1,1185 @@
+/* =========================================================
+   SIBAPER - KINERJA CSS
+   EVALUASI & PENILAIAN DOKUMEN KINERJA MULTI-PERIODE
+========================================================= */
+
+.kinerja-container {
+    margin-top: 24px;
+}
+
+/* =========================================================
+   1. SUMMARY CARDS
+========================================================= */
+.kinerja-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.kinerja-summary-card {
+    position: relative;
+    min-height: 120px;
+    padding: 22px 24px;
+    overflow: hidden;
+    border: 1px solid #dce7f0;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(15, 42, 70, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kinerja-summary-card::after {
+    position: absolute;
+    right: -20px;
+    bottom: -25px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(21, 87, 141, 0.06);
+    content: "";
+}
+
+.kinerja-summary-card span {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.kinerja-summary-card strong {
+    display: inline-block;
+    margin-top: 8px;
+    color: #0f172a;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.kinerja-summary-card small {
+    display: inline-block;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.kinerja-summary-card.success {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+}
+
+.kinerja-summary-card.success strong {
+    color: #166534;
+}
+
+.kinerja-summary-card.success::after {
+    background: rgba(22, 101, 52, 0.08);
+}
+
+.kinerja-summary-card.pending {
+    border-color: #fed7aa;
+    background: #fffbeb;
+}
+
+.kinerja-summary-card.pending strong {
+    color: #9a3412;
+}
+
+.kinerja-summary-card.pending::after {
+    background: rgba(154, 52, 18, 0.08);
+}
+
+/* =========================================================
+   2. TOOLBAR HEADER & BADGE
+========================================================= */
+.kinerja-toolbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 22px 26px;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(15, 42, 70, 0.04);
+}
+
+.kinerja-header-text {
+    min-width: 0;
+}
+
+.kinerja-badge-title {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.kinerja-header-text h3 {
+    margin: 0 0 6px;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.kinerja-header-text p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.kinerja-header-actions {
+    flex-shrink: 0;
+}
+
+.kinerja-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 12px;
+    background: #1e40af;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.kinerja-btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.35);
+}
+
+.kinerja-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #334155;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.kinerja-btn-secondary:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+/* =========================================================
+   3. SEARCH & FILTER BAR
+========================================================= */
+.kinerja-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.kinerja-search-box {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+}
+
+.kinerja-search-icon {
+    position: absolute;
+    left: 14px;
+    color: #94a3b8;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.kinerja-search-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 38px 0 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 13.5px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.kinerja-search-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.kinerja-search-clear {
+    position: absolute;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kinerja-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.kinerja-filter-group label {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.kinerja-period-select {
+    height: 44px;
+    padding: 0 32px 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+}
+
+.kinerja-period-select:focus {
+    border-color: #2563eb;
+}
+
+/* =========================================================
+   4. PROFILE GRID & CARDS
+========================================================= */
+.kinerja-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.kinerja-card-wrapper {
+    display: flex;
+}
+
+.kinerja-profile-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(15, 42, 70, 0.05);
+    overflow: hidden;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.kinerja-profile-card:hover {
+    transform: translateY(-4px);
+    border-color: #93c5fd;
+    box-shadow: 0 16px 36px rgba(15, 42, 70, 0.12);
+}
+
+.kinerja-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    overflow: hidden;
+}
+
+.kinerja-profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kinerja-profile-placeholder {
+    width: 76px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #1e40af;
+    font-size: 36px;
+}
+
+.kinerja-card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.kinerja-profile-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.kinerja-position {
+    display: inline-block;
+    color: #1d4ed8;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.kinerja-profile-info h3 {
+    margin: 0 0 6px;
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.kinerja-nip {
+    color: #64748b;
+    font-size: 12.5px;
+    margin-bottom: 14px;
+}
+
+/* Status Box */
+.kinerja-skp-status-box {
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.kinerja-skp-status-box.success {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.kinerja-skp-status-box.empty {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+}
+
+.kinerja-skp-status-top {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #166534;
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.kinerja-skp-status-box.empty .kinerja-skp-status-top {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.kinerja-check-icon {
+    font-weight: 900;
+    color: #16a34a;
+}
+
+.kinerja-empty-dot {
+    color: #94a3b8;
+}
+
+.kinerja-period-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.kinerja-period-pill {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.kinerja-period-more {
+    font-size: 11px;
+    color: #64748b;
+    align-self: center;
+}
+
+/* Files Preview List */
+.kinerja-files-preview-container {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    margin-bottom: 14px;
+}
+
+.kinerja-files-preview-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.kinerja-mini-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 6px;
+}
+
+.kinerja-mini-file-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.kinerja-mini-file-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.kinerja-mini-file-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 170px;
+}
+
+.kinerja-mini-file-info small {
+    font-size: 10.5px;
+    color: #64748b;
+}
+
+.kinerja-mini-download-btn {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 6px;
+    background: #e2e8f0;
+    color: #1e40af;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.kinerja-mini-download-btn:hover {
+    background: #1e40af;
+    color: #ffffff;
+}
+
+/* Card Bottom Action */
+.kinerja-card-actions {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.kinerja-card-btn-view {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.kinerja-card-btn-view:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+    border-color: #1d4ed8;
+}
+
+/* =========================================================
+   5. FILE ICONS
+========================================================= */
+.kinerja-file-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 24px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    font-weight: 900;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.kinerja-file-icon.pdf {
+    background: #dc2626;
+}
+
+.kinerja-file-icon.doc {
+    background: #2563eb;
+}
+
+.kinerja-file-icon.xls {
+    background: #16a34a;
+}
+
+.kinerja-file-icon.img {
+    background: #8b5cf6;
+}
+
+.kinerja-file-icon.default {
+    background: #475569;
+}
+
+/* =========================================================
+   6. MODAL OVERLAY & BASE
+========================================================= */
+.kinerja-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.kinerja-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.kinerja-modal {
+    width: min(640px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kinerja-modal.kinerja-modal-large {
+    width: min(880px, 100%);
+}
+
+.kinerja-modal-overlay.show .kinerja-modal {
+    transform: translateY(0) scale(1);
+}
+
+.kinerja-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 28px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.kinerja-modal-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #1e40af;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.kinerja-modal-header h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.kinerja-detail-meta {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.kinerja-modal-close {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.kinerja-modal-close:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+}
+
+/* =========================================================
+   7. DETAIL SKP MODAL BODY & TABLE
+========================================================= */
+.kinerja-detail-body {
+    padding: 24px 28px;
+}
+
+.kinerja-detail-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.kinerja-detail-summary-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.kinerja-detail-summary-text span {
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.kinerja-detail-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.kinerja-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.kinerja-detail-table th {
+    padding: 12px 16px;
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.kinerja-detail-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+    vertical-align: middle;
+}
+
+.kinerja-detail-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.kinerja-detail-table tr:hover td {
+    background: #f8fafc;
+}
+
+.col-number {
+    width: 40px;
+    text-align: center;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.col-period {
+    width: 130px;
+}
+
+.kinerja-table-period-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.col-filename {
+    min-width: 220px;
+}
+
+.kinerja-table-file-title {
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.kinerja-table-file-sub {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #64748b;
+}
+
+.col-date {
+    width: 110px;
+    color: #64748b;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.col-actions {
+    width: 160px;
+    text-align: right;
+}
+
+.kinerja-table-action-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.kinerja-btn-action {
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.kinerja-btn-action:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.kinerja-btn-action.danger {
+    color: #b91c1c;
+    border-color: #fecaca;
+    background: #fef2f2;
+}
+
+.kinerja-btn-action.danger:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+.kinerja-detail-empty {
+    padding: 48px 20px;
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.kinerja-detail-empty h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: #0f172a;
+}
+
+.kinerja-detail-empty p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   8. INPUT FORM STYLING
+========================================================= */
+.kinerja-form {
+    padding: 24px 28px 28px;
+}
+
+.kinerja-form-group {
+    margin-bottom: 20px;
+}
+
+.kinerja-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.kinerja-form input[type="text"],
+.kinerja-form select {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #0f172a;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kinerja-form input[type="text"]:focus,
+.kinerja-form select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.kinerja-period-quick-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.kinerja-period-quick-tags span {
+    font-size: 11.5px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.quick-period-tag {
+    padding: 3px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.quick-period-tag:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+    color: #1e40af;
+}
+
+/* Upload Dropzone */
+.kinerja-upload-dropzone {
+    position: relative;
+    padding: 24px 20px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+    background: #f8fafc;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.kinerja-upload-dropzone:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.kinerja-upload-dropzone input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.kinerja-dropzone-icon {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.kinerja-dropzone-text {
+    font-size: 13.5px;
+    color: #334155;
+    margin-bottom: 4px;
+}
+
+.kinerja-dropzone-text strong {
+    color: #1d4ed8;
+}
+
+.kinerja-dropzone-content small {
+    display: block;
+    color: #64748b;
+    font-size: 11.5px;
+}
+
+.kinerja-selected-file-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.kinerja-file-preview-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kinerja-preview-icon {
+    font-size: 18px;
+}
+
+.kinerja-file-preview-left strong {
+    display: block;
+    font-size: 13px;
+    color: #166534;
+}
+
+.kinerja-file-preview-left small {
+    color: #15803d;
+    font-size: 11px;
+}
+
+.kinerja-remove-file-btn {
+    border: 0;
+    background: transparent;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.kinerja-remove-file-btn:hover {
+    background: #fee2e2;
+}
+
+/* Modal Footer */
+.kinerja-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.kinerja-cancel-button {
+    min-height: 42px;
+    padding: 0 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #475569;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.kinerja-cancel-button:hover {
+    background: #f1f5f9;
+}
+
+.kinerja-save-button {
+    min-height: 42px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 10px;
+    background: #1e40af;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+    transition: all 0.2s;
+}
+
+.kinerja-save-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   9. EMPTY STATES
+========================================================= */
+.kinerja-empty {
+    padding: 60px 24px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.kinerja-empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.kinerja-empty h3 {
+    margin: 0 0 6px;
+    color: #0f172a;
+    font-size: 18px;
+}
+
+.kinerja-empty p {
+    max-width: 440px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   10. RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+    .kinerja-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kinerja-profile-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kinerja-toolbar-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .kinerja-header-actions {
+        width: 100%;
+    }
+
+    .kinerja-header-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .kinerja-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .kinerja-profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kinerja-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .kinerja-filter-group {
+        justify-content: space-between;
+    }
+
+    .kinerja-filter-group select {
+        flex: 1;
+    }
+
+    .kinerja-modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .kinerja-modal {
+        border-radius: 20px 20px 0 0;
+        max-height: 94vh;
+    }
+
+    .kinerja-modal-header,
+    .kinerja-detail-body,
+    .kinerja-form {
+        padding: 18px 20px;
+    }
+}
