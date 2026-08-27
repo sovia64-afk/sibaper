@@ -1,12 +1,32 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import {copyFileSync, mkdirSync} from 'fs';
 import path from 'path';
 import {defineConfig} from 'vite';
+
+function copySibaperPages() {
+  const pageNames = ['login', 'dashboard', 'user', 'profil', 'register'];
+
+  return {
+    name: 'copy-sibaper-pages',
+    closeBundle() {
+      const outputDirectory = path.resolve(__dirname, 'dist');
+      mkdirSync(outputDirectory, {recursive: true});
+
+      pageNames.forEach((pageName) => {
+        copyFileSync(
+          path.resolve(__dirname, 'pages', `${pageName}.html`),
+          path.resolve(outputDirectory, `${pageName}.html`),
+        );
+      });
+    },
+  };
+}
 
 export default defineConfig(() => {
   return {
     base: '/',
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), copySibaperPages()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
